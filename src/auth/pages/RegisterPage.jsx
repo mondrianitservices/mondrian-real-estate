@@ -1,6 +1,6 @@
 import { Link as RouterLink} from 'react-router-dom'
 import {Grid,Typography,TextField,Button,Link} from '@mui/material';
-import {Google} from '@mui/icons-material';
+import {GoogleIcon} from './GoogleIcon';
 import { AuthLayout } from '../layout/AuthLayout';
 
 export const RegisterPage = () => {
@@ -42,7 +42,7 @@ export const RegisterPage = () => {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <Button variant="contained" fullWidth>
-                    <Google />
+                    <GoogleIcon />
                     <Typography sx={{ml:1}}>Google</Typography>
                   </Button>
                 </Grid>
