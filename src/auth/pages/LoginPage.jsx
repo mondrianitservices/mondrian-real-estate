@@ -111,12 +111,12 @@ export const LoginPage = () => {
             <Stack gap={4} sx={{ mb: 2 }}>
               <Stack gap={1}>
                 <Typography component="h1" level="h3">
-                  Ingreso
+                  Iniciar Sesión
                 </Typography>
                 <Typography level="body-sm">
-                  ¿Aun no tienes Cuenta?{' '}
+                  ¿Aún no tienes Cuenta?{' '}
                   <Link component={RouterLink} to="/auth/register">
-                  ¡Registrate!
+                  ¡Regístrate!
                   </Link>
                 </Typography>
               </Stack>
@@ -126,7 +126,7 @@ export const LoginPage = () => {
                 fullWidth
                 startDecorator={<GoogleIcon />}
               >
-                Ingresar con Cuenta de Google
+                Continuar con Google
               </Button>
             </Stack>
             <Divider
@@ -136,17 +136,17 @@ export const LoginPage = () => {
                 },
               })}
             >
-              or
+              o
             </Divider>
             <Stack gap={4} sx={{ mt: 2 }}>
               <form
               >
                 <FormControl required>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>Correo Electrónico</FormLabel>
                   <Input type="email" name="email" />
                 </FormControl>
                 <FormControl required>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>Contraseña</FormLabel>
                   <Input type="password" name="password" />
                 </FormControl>
                 <Stack gap={4} sx={{ mt: 2 }}>
@@ -157,13 +157,13 @@ export const LoginPage = () => {
                       alignItems: 'center',
                     }}
                   >
-                    <Checkbox size="sm" label="Remember me" name="persistent" />
+                    <Checkbox size="sm" label="Recordar Sesión" name="persistent" />
                     <Link level="title-sm" href="#replace-with-a-link">
-                      Olvidaste tu contrasena?
+                    ¿Olvidaste tu contraseña?
                     </Link>
                   </Box>
                   <Button type="submit" fullWidth>
-                    Ingresar
+                    Iniciar Sesión
                   </Button>
                 </Stack>
               </form>
