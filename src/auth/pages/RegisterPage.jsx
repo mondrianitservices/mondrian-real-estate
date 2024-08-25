@@ -1,60 +1,53 @@
-import { Link as RouterLink} from 'react-router-dom'
-import {Grid,Typography,TextField,Button,Link} from '@mui/material';
-import {GoogleIcon} from './GoogleIcon';
+import { Link as RouterLink } from 'react-router-dom'
 import { AuthLayout } from '../layout/AuthLayout';
+import FormControl from '@mui/joy/FormControl';
+import FormLabel from '@mui/joy/FormLabel';
+import Input from '@mui/joy/Input';
+import Stack from '@mui/joy/Stack';
+import Box from '@mui/joy/Box';
+import Checkbox from '@mui/joy/Checkbox';
+import Link from '@mui/joy/Link';
+import Button from '@mui/joy/Button';
 
 export const RegisterPage = () => {
   return (
     <AuthLayout title="Crear Cuenta">
-          <form>
-            <Grid container>
-              <Grid item xs={12} sx={{mt:2}}>
-                <TextField
-                  label="Nombre Completo"
-                  type="text"
-                  placeholder='Nombre Completo'
-                  fullWidth
-                />                
-              </Grid>
-              <Grid item xs={12} sx={{mt:2}}>
-                <TextField
-                  label="Correo"
-                  type="email"
-                  placeholder='correo'
-                  fullWidth
-                />                
-              </Grid>
-              <Grid item xs={12} sx={{mt:2}}>
-                <TextField
-                  label="Contrasena"
-                  type="password"
-                  placeholder='Contrasena'
-                  fullWidth
-                />                
-              </Grid>
-
-              {/* Botones de login */}
-              <Grid container spacing={2} sx={{mb:2,mt:1}}>
-                <Grid item xs={12} sm={6}>
-                  <Button variant="contained" fullWidth>
-                  Crear Cuenta
-                  </Button>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Button variant="contained" fullWidth>
-                    <GoogleIcon />
-                    <Typography sx={{ml:1}}>Google</Typography>
-                  </Button>
-                </Grid>
-              </Grid>
-              <Grid container direction='row' justifyContent='end'>
-                <Typography>Ya tienes una cuenta?</Typography>
-                <Link component={RouterLink} color='inherit' to="/auth/login">
-                  Ingresar
-                </Link>
-              </Grid>
-            </Grid>
-          </form>
+      <form
+      >
+        <FormControl required>
+          <FormLabel>Nombre</FormLabel>
+          <Input type="text" name="Nombre" />
+        </FormControl>
+        <FormControl required>
+          <FormLabel>Apellidos</FormLabel>
+          <Input type="text" name="Apellidos" />
+        </FormControl>
+        <FormControl required>
+          <FormLabel>Correo Electrónico</FormLabel>
+          <Input type="email" name="email" />
+        </FormControl>
+        <FormControl required>
+          <FormLabel>Contraseña</FormLabel>
+          <Input type="password" name="password" />
+        </FormControl>
+        <FormControl required>
+          <FormLabel>Confirmar Contraseña</FormLabel>
+          <Input type="password" name="passwordConfirm" />
+        </FormControl>
+        <Stack gap={4} sx={{ mt: 2 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
+          </Box>
+          <Button type="submit" fullWidth>
+            Crear Cuenta
+          </Button>
+        </Stack>
+      </form>
     </AuthLayout>
   )
 }
