@@ -6,9 +6,9 @@ import { AddOutlined } from "@mui/icons-material"
 export const JournalPage = () => {
   return (
     <JournalLayout>
-      <NothingSelectedView/>
+      {/* <NothingSelectedView/> */}
       {/* <NoteView/> */}
-      <IconButton
+      {/* <IconButton
         size="large"
         sx={{
           color: 'white',
@@ -20,7 +20,7 @@ export const JournalPage = () => {
         }}
       >
         <AddOutlined sx={{fontSize:30}}/>    
-      </IconButton>
+      </IconButton> */}
 
     </JournalLayout>
   )
