@@ -5,13 +5,37 @@ import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Stack from '@mui/joy/Stack';
 import Box from '@mui/joy/Box';
-import Checkbox from '@mui/joy/Checkbox';
 import Link from '@mui/joy/Link';
 import Button from '@mui/joy/Button';
+import Typography from '@mui/joy/Typography';
+import GoogleIcon from './GoogleIcon';
 
 export const RegisterPage = () => {
+  const headerContent = (
+    <>
+      <Stack gap={1}>
+        <Typography component="h1" level="h3">
+          Crear Cuenta
+        </Typography>
+        <Typography level="body-sm">
+          ¿Ya tienes cuenta?{' '}
+          <Link component={RouterLink} to="/auth/login">
+            Inciar sesión
+          </Link>
+        </Typography>
+      </Stack>
+      <Button
+        variant="soft"
+        color="neutral"
+        fullWidth
+        startDecorator={<GoogleIcon />}
+      >
+        Crear cuenta con Google
+      </Button>
+    </>
+  );
   return (
-    <AuthLayout title="Crear Cuenta">
+    <AuthLayout title="Crear Cuenta" headerContent={headerContent}>
       <form
       >
         <FormControl required>

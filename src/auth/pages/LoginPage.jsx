@@ -8,11 +8,35 @@ import Box from '@mui/joy/Box';
 import Checkbox from '@mui/joy/Checkbox';
 import Link from '@mui/joy/Link';
 import Button from '@mui/joy/Button';
-
+import { Typography } from '@mui/joy';
+import GoogleIcon from './GoogleIcon';
 
 export const LoginPage = () => {
+  const headerContent = (
+    <>
+      <Stack gap={1}>
+        <Typography component="h1" level="h3">
+          Iniciar Sesión
+        </Typography>
+        <Typography level="body-sm">
+          ¿Aún no tienes una cuenta?{' '}
+          <Link component={RouterLink} to="/auth/register">
+            Registrate
+          </Link>
+        </Typography>
+      </Stack>
+      <Button
+        variant="soft"
+        color="neutral"
+        fullWidth
+        startDecorator={<GoogleIcon />}
+      >
+        Iniciar Sesión con Google
+      </Button>
+    </>
+  );
   return (
-    <AuthLayout title='Iniciar Sesión'>
+    <AuthLayout title='Iniciar Sesión' headerContent={headerContent}>
       <form
       >
         <FormControl required>
@@ -31,10 +55,10 @@ export const LoginPage = () => {
               alignItems: 'center',
             }}
           >
-            <Checkbox size="sm" label="Recordar Sesión" name="persistent" />
+            {/* <Checkbox size="sm" label="Recordar Sesión" name="persistent" />
             <Link level="title-sm" href="#replace-with-a-link">
               ¿Olvidaste tu contraseña?
-            </Link>
+            </Link> */}
           </Box>
           <Button type="submit" fullWidth>
             Iniciar Sesión

@@ -1,19 +1,14 @@
-import { Link as RouterLink } from 'react-router-dom'
 import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
 import GlobalStyles from '@mui/joy/GlobalStyles';
 import CssBaseline from '@mui/joy/CssBaseline';
 import Box from '@mui/joy/Box';
-import Button from '@mui/joy/Button';
 import Divider from '@mui/joy/Divider';
 import { IconButton } from '@mui/joy';
-import Link from '@mui/joy/Link';
 import Typography from '@mui/joy/Typography';
 import Stack from '@mui/joy/Stack';
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import LightModeRoundedIcon from '@mui/icons-material/LightModeRounded';
 import BadgeRoundedIcon from '@mui/icons-material/BadgeRounded';
-import GoogleIcon from '../pages/GoogleIcon';
-
 
 function ColorSchemeToggle() {
   return (
@@ -28,7 +23,7 @@ function ColorSchemeToggle() {
   );
 }
 
-export const AuthLayout = ({ children, title = '' }) => {
+export const AuthLayout = ({ children, title = '', headerContent }) => {
   return (
     <CssVarsProvider>
       <CssBaseline />
@@ -79,7 +74,7 @@ export const AuthLayout = ({ children, title = '' }) => {
               </IconButton>
               <Typography level="title-lg">Mondrian Logo</Typography>
             </Box>
-            <ColorSchemeToggle />
+            {/* <ColorSchemeToggle /> */}
           </Box>
           <Box
             component="main"
@@ -104,27 +99,11 @@ export const AuthLayout = ({ children, title = '' }) => {
               },
             }}
           >
-            <Stack gap={4} sx={{ mb: 2 }}>
-              <Stack gap={1}>
-                <Typography component="h1" level="h3">
-                  {title}
-                </Typography>
-                <Typography level="body-sm">
-                  ¿Aún no tienes Cuenta?{' '}
-                  <Link component={RouterLink} to="/auth/register">
-                    ¡Regístrate!
-                  </Link>
-                </Typography>
+            {headerContent && (
+              <Stack gap={4} sx={{ mb: 2 }}>
+                {headerContent}
               </Stack>
-              <Button
-                variant="soft"
-                color="neutral"
-                fullWidth
-                startDecorator={<GoogleIcon />}
-              >
-                Continuar con Google
-              </Button>
-            </Stack>
+            )}
             <Divider
               sx={(theme) => ({
                 [theme.getColorSchemeSelector('light')]: {
@@ -169,5 +148,6 @@ export const AuthLayout = ({ children, title = '' }) => {
         })}
       />
     </CssVarsProvider>
-  )
-}
+  );
+};
+
