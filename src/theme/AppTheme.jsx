@@ -1,12 +1,12 @@
-import {ThemeProvider } from '@emotion/react';
-import {CssBaseline} from '@mui/material';
-import {purpleTheme} from './'
+import * as React from "react";
+import { CssVarsProvider } from '@mui/joy/styles';
+import CssBaseline from '@mui/joy/CssBaseline';
 
 export const AppTheme = ({children}) => {
   return (
-    <ThemeProvider theme={purpleTheme}>
+    <CssVarsProvider disableTransitionOnChange>
         <CssBaseline/>
         {children}
-    </ThemeProvider>
+    </CssVarsProvider>
   )
 }

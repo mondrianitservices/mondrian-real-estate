@@ -90,7 +90,7 @@ export const SidebarMenu = () => {
         <IconButton variant="soft" color="primary" size="sm">
         <BrightnessAutoRoundedIcon />
         </IconButton>
-        <Typography level="title-lg">Logo</Typography>
+        <Typography level="title-lg">Real Estate</Typography>
         {/* <ColorSchemeToggle sx={{ ml: "auto" }} /> */}
       </Box>
       <Box
@@ -115,15 +115,6 @@ export const SidebarMenu = () => {
         >
           <ListItem>
             <ListItemButton>
-              <HomeRoundedIcon />
-              <ListItemContent>
-                <Typography level="title-sm">Home</Typography>
-              </ListItemContent>
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem>
-            <ListItemButton>
               <DashboardRoundedIcon />
               <ListItemContent>
                 <Typography level="title-sm">Dashboard</Typography>
@@ -132,10 +123,19 @@ export const SidebarMenu = () => {
           </ListItem>
 
           <ListItem>
+            <ListItemButton>
+              <HomeRoundedIcon />
+              <ListItemContent>
+                <Typography level="title-sm">Properties</Typography>
+              </ListItemContent>
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem>
             <ListItemButton selected>
               <ShoppingCartRoundedIcon />
               <ListItemContent>
-                <Typography level="title-sm">Ordenes</Typography>
+                <Typography level="title-sm">Solicitudes</Typography>
               </ListItemContent>
             </ListItemButton>
           </ListItem>
