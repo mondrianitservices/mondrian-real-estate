@@ -1,4 +1,4 @@
-import { Box, GlobalStyles, IconButton, List, ListItem, ListItemButton, ListItemContent, Sheet, Typography } from '@mui/joy'
+import { Avatar, Box, Divider, GlobalStyles, IconButton, List, ListItem, ListItemButton, ListItemContent, Sheet, Typography } from '@mui/joy'
 import { listItemButtonClasses } from "@mui/joy/ListItemButton";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
@@ -7,31 +7,33 @@ import BrightnessAutoRoundedIcon from "@mui/icons-material/BrightnessAutoRounded
 import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import React from 'react'
-import {closeSidebar} from '../utils/toggleSidebar'
+import { closeSidebar } from '../utils/toggleSidebar'
+import { GroupRounded, LogoutRounded } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 // Conversión de Toggler a JavaScript
 function Toggler({ defaultExpanded = false, renderToggle, children }) {
-    const [open, setOpen] = React.useState(defaultExpanded);
-    return (
-      <React.Fragment>
-        {renderToggle({ open, setOpen })}
-        <Box
-          sx={[
-            {
-              display: "grid",
-              transition: "0.2s ease",
-              "& > *": {
-                overflow: "hidden",
-              },
+  const [open, setOpen] = React.useState(defaultExpanded);
+  return (
+    <React.Fragment>
+      {renderToggle({ open, setOpen })}
+      <Box
+        sx={[
+          {
+            display: "grid",
+            transition: "0.2s ease",
+            "& > *": {
+              overflow: "hidden",
             },
-            open ? { gridTemplateRows: "1fr" } : { gridTemplateRows: "0fr" },
-          ]}
-        >
-          {children}
-        </Box>
-      </React.Fragment>
-    );
-  }
+          },
+          open ? { gridTemplateRows: "1fr" } : { gridTemplateRows: "0fr" },
+        ]}
+      >
+        {children}
+      </Box>
+    </React.Fragment>
+  );
+}
 
 export const SidebarMenu = () => {
   return (
@@ -88,7 +90,7 @@ export const SidebarMenu = () => {
       />
       <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
         <IconButton variant="soft" color="primary" size="sm">
-        <BrightnessAutoRoundedIcon />
+          <BrightnessAutoRoundedIcon />
         </IconButton>
         <Typography level="title-lg">Real Estate</Typography>
         {/* <ColorSchemeToggle sx={{ ml: "auto" }} /> */}
@@ -126,7 +128,7 @@ export const SidebarMenu = () => {
             <ListItemButton>
               <HomeRoundedIcon />
               <ListItemContent>
-                <Typography level="title-sm">Properties</Typography>
+                <Typography level="title-sm">Propiedades</Typography>
               </ListItemContent>
             </ListItemButton>
           </ListItem>
@@ -139,7 +141,7 @@ export const SidebarMenu = () => {
               </ListItemContent>
             </ListItemButton>
           </ListItem>
-          
+
           <ListItem nested>
             <Toggler
               renderToggle={({ open, setOpen }) => (
@@ -152,11 +154,11 @@ export const SidebarMenu = () => {
                     sx={[
                       open
                         ? {
-                            transform: "rotate(180deg)",
-                          }
+                          transform: "rotate(180deg)",
+                        }
                         : {
-                            transform: "none",
-                          },
+                          transform: "none",
+                        },
                     ]}
                   />
                 </ListItemButton>
@@ -178,7 +180,37 @@ export const SidebarMenu = () => {
               </List>
             </Toggler>
           </ListItem>
-          
+
+          <ListItem nested>
+            <Toggler
+              defaultExpanded
+              renderToggle={({ open, setOpen }) => (
+                <ListItemButton onClick={() => setOpen(!open)}>
+                  <GroupRounded />
+                  <ListItemContent>
+                    <Typography level="title-sm">Usuarios</Typography>
+                  </ListItemContent>
+                  <KeyboardArrowDownIcon
+                    sx={[
+                      open ? { transform: 'rotate(180deg)' } : { transform: 'none' },
+                    ]}
+                  />
+                </ListItemButton>
+              )}
+            >
+              <List sx={{ gap: 0.5 }}>
+                <ListItem sx={{ mt: 0.5 }}>
+                  <ListItemButton selected>Mi perfil</ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton>Crear nuevo usuario</ListItemButton>
+                </ListItem>
+                <ListItem>
+                  <ListItemButton>Permisos</ListItemButton>
+                </ListItem>
+              </List>
+            </Toggler>
+          </ListItem>
 
         </List>
         <List
@@ -190,7 +222,33 @@ export const SidebarMenu = () => {
             "--List-gap": "8px",
             mb: 2,
           }}
-        ></List>
+        >
+          <ListItem>
+            <ListItemButton>
+              {/* <SupportRoundedIcon /> */}
+              Soporte
+            </ListItemButton>
+          </ListItem>
+          <ListItem>
+            <ListItemButton>
+              {/* <SettingsRoundedIcon /> */}
+              Configuraciones
+            </ListItemButton>
+          </ListItem>
+        </List>
+      </Box>
+      <Divider />
+      <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+        <Avatar />
+        <Box sx={{ minWidth: 0, flex: 1 }}>
+          <Typography level='title-sm'>Aaron Girón</Typography>
+          <Typography level='body-xs'>agirong@gmail.com</Typography>
+        </Box>
+        <Link to="/auth/login">
+          <IconButton size="sm" variant="plain" color="neutral">
+            <LogoutRounded />
+          </IconButton>
+        </Link>
       </Box>
     </Sheet>
   )

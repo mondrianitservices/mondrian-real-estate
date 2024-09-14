@@ -25,14 +25,16 @@ export const LoginPage = () => {
           </Link>
         </Typography>
       </Stack>
-      <Button
-        variant="soft"
-        color="neutral"
-        fullWidth
-        startDecorator={<GoogleIcon />}
-      >
-        Iniciar Sesión con Google
-      </Button>
+      <Link component={RouterLink} to="/">
+        <Button
+          variant="soft"
+          color="neutral"
+          fullWidth
+          startDecorator={<GoogleIcon />}
+        >
+          Iniciar Sesión con Google
+        </Button>
+      </Link>
     </>
   );
   return (
@@ -60,9 +62,11 @@ export const LoginPage = () => {
               ¿Olvidaste tu contraseña?
             </Link> */}
           </Box>
-          <Button type="submit" fullWidth>
-            Iniciar Sesión
-          </Button>
+          <Link component={RouterLink} to="/">
+            <Button type="submit" fullWidth>
+              Iniciar Sesión
+            </Button>
+          </Link>
         </Stack>
       </form>
     </AuthLayout>
