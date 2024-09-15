@@ -125,19 +125,10 @@ export const SidebarMenu = () => {
           </ListItem>
 
           <ListItem>
-            <ListItemButton>
+            <ListItemButton selected>
               <HomeRoundedIcon />
               <ListItemContent>
                 <Typography level="title-sm">Propiedades</Typography>
-              </ListItemContent>
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem>
-            <ListItemButton selected>
-              <ShoppingCartRoundedIcon />
-              <ListItemContent>
-                <Typography level="title-sm">Solicitudes</Typography>
               </ListItemContent>
             </ListItemButton>
           </ListItem>
@@ -200,7 +191,7 @@ export const SidebarMenu = () => {
             >
               <List sx={{ gap: 0.5 }}>
                 <ListItem sx={{ mt: 0.5 }}>
-                  <ListItemButton selected>Mi perfil</ListItemButton>
+                  <ListItemButton>Mi perfil</ListItemButton>
                 </ListItem>
                 <ListItem>
                   <ListItemButton>Crear nuevo usuario</ListItemButton>
