@@ -90,9 +90,9 @@ export const SidebarMenu = () => {
       />
       <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
         <IconButton variant="soft" color="primary" size="sm">
-          <BrightnessAutoRoundedIcon />
+          {/* <BrightnessAutoRoundedIcon /> */}
         </IconButton>
-        <Typography level="title-lg">Real Estate</Typography>
+        <Typography level="title-lg">Frontend</Typography>
         {/* <ColorSchemeToggle sx={{ ml: "auto" }} /> */}
       </Box>
       <Box

@@ -1,5 +1,5 @@
 import { ChevronRightRounded, HomeRounded } from '@mui/icons-material'
-import { Box, Breadcrumbs, Link, Stack, Tab, TabList, Tabs, Typography, tabClasses } from '@mui/joy'
+import { Box, Breadcrumbs, Button, Card, CardActions, CardOverflow, Divider, FormControl, FormLabel, Input, Link, Option, Select, Stack, Tab, TabList, Tabs, Textarea, Typography, tabClasses } from '@mui/joy'
 
 export const PropertyView = () => {
     return (
@@ -43,27 +43,27 @@ export const PropertyView = () => {
                         Crear Propiedad
                     </Typography>
                 </Box>
-                <Tabs defaultValue={0} sx={{bgcolor:'transparent'}}>
+                <Tabs defaultValue={0} sx={{ bgcolor: 'transparent' }}>
                     <TabList
-                    tabFlex={1}
-                    size="sm"
-                    sx={{
-                        pl: { xs: 0, md: 4 },
-                        justifyContent: 'left',
-                        [`&& .${tabClasses.root}`]: {
-                          fontWeight: '600',
-                          flex: 'initial',
-                          color: 'text.tertiary',
-                          [`&.${tabClasses.selected}`]: {
-                            bgcolor: 'transparent',
-                            color: 'text.primary',
-                            '&::after': {
-                              height: '2px',
-                              bgcolor: 'primary.500',
+                        tabFlex={1}
+                        size="sm"
+                        sx={{
+                            pl: { xs: 0, md: 4 },
+                            justifyContent: 'left',
+                            [`&& .${tabClasses.root}`]: {
+                                fontWeight: '600',
+                                flex: 'initial',
+                                color: 'text.tertiary',
+                                [`&.${tabClasses.selected}`]: {
+                                    bgcolor: 'transparent',
+                                    color: 'text.primary',
+                                    '&::after': {
+                                        height: '2px',
+                                        bgcolor: 'primary.500',
+                                    },
+                                },
                             },
-                          },
-                        },
-                      }}
+                        }}
                     >
                         <Tab sx={{ borderRadius: '6px 6px 0 0' }} indicatorInset value={0}>
                             Información General
@@ -74,8 +74,67 @@ export const PropertyView = () => {
                     </TabList>
                 </Tabs>
             </Box>
-            <Stack>
-
+            <Stack
+                spacing={4}
+                sx={{
+                    display: 'flex',
+                    maxWidth: '800px',
+                    mx: 'auto',
+                    px: { xs: 2, md: 6 },
+                    py: { xs: 2, md: 3 },
+                }}
+            >
+                <Card>
+                    <Box sx={{ mb: 1 }}>
+                        <Typography level='title-md'>Información General</Typography>
+                        <Typography level='body-sm'>Agrega la información de tu propiedad</Typography>
+                    </Box>
+                    <Divider />
+                    <Stack
+                        direction="column"
+                        spacing={3}
+                        sx={{ display: { xs: 'flex', md: 'flex' }, my: 1 }}
+                    >                        
+                        <Stack spacing={2} sx={{ flexGrow: 1 }}>
+                            <Stack spacing={1}>
+                                <FormLabel>Nombre de Propiedad</FormLabel>
+                                <FormControl
+                                    sx={{ display: { sm: 'flex-column', md: 'flex-row' }, gap: 2 }}
+                                >
+                                    <Input size="sm" placeholder="Descripción breve de la propiedad a publicar" />
+                                </FormControl>
+                            </Stack>
+                            <Stack spacing={1}>
+                                <FormLabel>Descripción</FormLabel>
+                                <FormControl
+                                    sx={{ display: { sm: 'flex-column', md: 'flex-row' }, gap: 2 }}
+                                >
+                                    <Textarea
+                                        size="sm"
+                                        minRows={3}
+                                        defaultValue="Casa de habitación para familia grande con mascota."
+                                    />
+                                </FormControl>
+                            </Stack>
+                            <Stack spacing={1}>
+                                <FormControl>
+                                    <FormLabel>Dirección</FormLabel>
+                                    <Input size="sm" placeholder='Col Miraflores' />
+                                </FormControl>
+                            </Stack>
+                        </Stack>
+                    </Stack>
+                    <CardOverflow sx={{ borderTop: '1px solid', borderColor: 'divider' }}>
+                        <CardActions sx={{ alignSelf: 'flex-end', pt: 2 }}>
+                            <Button size="sm" variant="outlined" color="neutral">
+                                Cancelar
+                            </Button>
+                            <Button size="sm" variant="solid">
+                                Guardar
+                            </Button>
+                        </CardActions>
+                    </CardOverflow>
+                </Card>
             </Stack>
         </Box>
     )

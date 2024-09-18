@@ -140,7 +140,7 @@ export const AuthLayout = ({ children, title = '', headerContent }) => {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundImage:
-            'url(https://media.istockphoto.com/id/1188112158/es/foto/vista-panor%C3%A1mica-de-bogot%C3%A1-colombia.webp?s=1024x1024&w=is&k=20&c=cKd4E_Eyp7ruV2eFn7xXA7dpcckKEvyT1y_3E42FQc4=)',
+            'url(https://as2.ftcdn.net/v2/jpg/03/44/79/47/1000_F_344794732_8GbuYHzKjOxXqJ0uzNZjEho9fhxSHovF.jpg)',
           [theme.getColorSchemeSelector('dark')]: {
             backgroundImage:
               'url(https://images.unsplash.com/photo-1572072393749-3ca9c8ea0831?auto=format&w=1000&dpr=2)',
