@@ -1,5 +1,7 @@
-import { ChevronRightRounded, HomeRounded } from '@mui/icons-material'
+import { ChevronRightRounded, HomeRounded, Image, InsertDriveFileRounded, VideocamRounded } from '@mui/icons-material'
 import { Box, Breadcrumbs, Button, Card, CardActions, CardOverflow, Divider, FormControl, FormLabel, Input, Link, Option, Select, Stack, Tab, TabList, Tabs, Textarea, Typography, tabClasses } from '@mui/joy'
+import { DropZone } from '../components/DropZone'
+import { FileUpload } from '../components'
 
 export const PropertyView = () => {
     return (
@@ -94,10 +96,10 @@ export const PropertyView = () => {
                         direction="column"
                         spacing={3}
                         sx={{ display: { xs: 'flex', md: 'flex' }, my: 1 }}
-                    >                        
+                    >
                         <Stack spacing={2} sx={{ flexGrow: 1 }}>
                             <Stack spacing={1}>
-                                <FormLabel>Nombre de Propiedad</FormLabel>
+                                <FormLabel>Título</FormLabel>
                                 <FormControl
                                     sx={{ display: { sm: 'flex-column', md: 'flex-row' }, gap: 2 }}
                                 >
@@ -123,6 +125,40 @@ export const PropertyView = () => {
                                 </FormControl>
                             </Stack>
                         </Stack>
+                    </Stack>
+                    <CardOverflow sx={{ borderTop: '1px solid', borderColor: 'divider' }}>
+                        <CardActions sx={{ alignSelf: 'flex-end', pt: 2 }}>
+                            <Button size="sm" variant="outlined" color="neutral">
+                                Cancelar
+                            </Button>
+                            <Button size="sm" variant="solid">
+                                Guardar
+                            </Button>
+                        </CardActions>
+                    </CardOverflow>
+                </Card>
+                <Card>
+                    <Box sx={{ mb: 1 }}>
+                        <Typography level="title-md">Imagenes de la Propiedad</Typography>
+                        <Typography level="body-sm">
+                            Agregue las imagenes que se compartirán.
+                        </Typography>
+                    </Box>
+                    <Divider />
+                    <Stack spacing={2} sx={{ my: 1 }}>
+                        <DropZone/>
+                        <FileUpload
+                            icon={<Image/>}
+                            fileName="Foto frontal de la casa"
+                            fileSize="200 kB"
+                            progress={100}
+                        />
+                        <FileUpload
+                            icon={<Image/>}
+                            fileName="Foto interior de la casa"
+                            fileSize="16 MB"
+                            progress={15}
+                        />
                     </Stack>
                     <CardOverflow sx={{ borderTop: '1px solid', borderColor: 'divider' }}>
                         <CardActions sx={{ alignSelf: 'flex-end', pt: 2 }}>
